@@ -2,6 +2,35 @@ var app = angular.module('angular-friends');
 
 app.controller('FriendController', function($scope) {
 
+    $scope.order = [{
+        label: 'Ascending',
+        value: false
+    }, {
+        label: 'Descending',
+        value: true
+    }];
+
+
+    $scope.sortingList = [{
+        label: 'Name',
+        value: 'name'
+    }, {
+        label: 'Friends',
+        value: "friend_count"
+    }, {
+        label: 'City',
+        value: "current_location.city"
+    }, {
+        label: 'State',
+        value: "current_location.state"
+    }, {
+        label: 'Country',
+        value: "current_location.country"
+    }];
+
+    $scope.defaultSortBy = $scope.sortingList[0];
+    $scope.defaultOrder = $scope.order[0];
+
     $scope.friends = [{
         "name": "Preston McNeil",
         "pic_square": "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/1117694_1614542_108355616_q.jpg",
