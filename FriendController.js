@@ -31,6 +31,8 @@ app.controller('FriendController', function($scope) {
     $scope.defaultSortBy = $scope.sortingList[0];
     $scope.defaultOrder = $scope.order[0];
 
+
+
     $scope.friends = [{
         "name": "Preston McNeil",
         "pic_square": "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/1117694_1614542_108355616_q.jpg",
@@ -448,5 +450,12 @@ app.controller('FriendController', function($scope) {
         "friend_count": "855",
         "$$hashKey": "02U"
     }];
+
+    //json friends object stores the friend_count as string, need to convert to int so we can sort correctly
+    var updateFriendCount = function(arr) {
+        for (var i = 0; i < arr.length; i++) {
+            arr[i].friend_count = parseInt(arr[i].friend_count);
+        }
+    }($scope.friends);
 
 });
